@@ -17,15 +17,16 @@
     <nav aria-label="Primary">
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="products.html" aria-current="page">Products</a></li>
-        <li><a href="world.html">World</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="legal.html">Legal</a></li>
+        <li><a href="products.html" aria-current="page">Collection</a></li>
+        <li><a href="about.html">Our Standard</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a class="nav-cta" href="products.html">Shop Collection</a></li>
       </ul>
     </nav>
-    <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    <div class="nav-actions">
+      <button class="nav-cart" id="adv-cart-btn" aria-label="Open quote cart"></button>
+      <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    </div>
   </header>
 
   <section class="pd-hero">
@@ -40,7 +41,7 @@
           <div class="pd-price-card-note">COA published · Ships in 24h · Batch-matched documentation travels with the compound</div>
         </a>
         <div class="pd-hero-ctas">
-          <a class="btn btn-gold" href="contact.html">Request Quote</a>
+          <button class="btn btn-gold" data-cart-add-base="glp2" data-product="GLP-2 (Teduglutide)">Add to Quote — $120</button>
           <a class="btn btn-outline" href="contact.html">View COA</a>
         </div>
       </div>
@@ -75,10 +76,10 @@
           <span>≥99% HPLC</span><span>Third-Party Tested</span><span>COA Per Lot</span><span>Made in USA</span>
         </div>
         <div class="pd-form">
-          <select class="qty" aria-label="Vial size">
+          <select class="qty" aria-label="Vial size" data-size-select="glp2">
             <option>5 mg</option><option selected>10 mg</option><option>20 mg</option>
           </select>
-          <button class="btn btn-gold" style="flex:1" data-cart-add="glp2-10" data-product="GLP-2 (Teduglutide)">Add to Quote — $120</button>
+          <button class="btn btn-gold" style="flex:1" data-cart-add-base="glp2" data-product="GLP-2 (Teduglutide)">Add to Quote — $120</button>
         </div>
         <p class="lot-line">Ships in 24h · Cold-chain guidance included · Batch-matched documentation</p>
 
@@ -198,7 +199,13 @@
     <div class="container reveal">
       <h2>Study gut-barrier <em>biology</em> on a documented lot.</h2>
       <p>Qualified laboratories only. Lot ADV-G2-0871 ships with batch-matched documentation and cold-chain handling guidance.</p>
-      <a class="btn btn-gold" href="contact.html">Request Quote — GLP-2</a>
+
+        <div class="contact-strip">
+          <span>Questions on this lot?</span>
+          <a href="tel:+13479683894">(347) 968-3894</a>
+          <a href="mailto:advigrow@gmail.com">advigrow@gmail.com</a>
+        </div>
+      <button class="btn btn-gold" data-cart-add-base="glp2" data-product="GLP-2 (Teduglutide)">Add GLP-2 to Quote — $120</button>
     </div>
   </section>
 
@@ -208,6 +215,10 @@
         <div>
           <div class="footer-logo">ADVIGROW<span> PEPTIDES</span></div>
           <p>Precision research compounds for qualified laboratories. Documented purity. Verified identity.</p>
+          <div class="footer-contact">
+            <a href="tel:+13479683894">Call / Text · (347) 968-3894</a>
+            <a href="mailto:advigrow@gmail.com">advigrow@gmail.com</a>
+          </div>
         </div>
         <div class="footer-col">
           <h4>Shop</h4>

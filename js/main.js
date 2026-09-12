@@ -9,9 +9,11 @@
     requestAnimationFrame(() => document.body.classList.add("loaded"));
   });
 
-  // Nav scrolled state + scroll progress hairline + hero parallax (one rAF loop)
+  // Nav scrolled state + scroll progress hairline + hero parallax + vial drop (one rAF loop)
   const nav = document.querySelector(".site-nav");
   const heroImg = document.querySelector(".hero-media img");
+  const expSection = document.getElementById("experiences");
+  const vialSvg = document.querySelector(".vial-stage svg");
   let ticking = false;
   const onScroll = () => {
     if (ticking) return;
@@ -26,6 +28,13 @@
       }
       if (heroImg && !prefersReduced && y < window.innerHeight) {
         heroImg.style.transform = `translateY(${y * 0.25}px)`;
+      }
+      if (expSection && vialSvg && !prefersReduced) {
+        const r = expSection.getBoundingClientRect();
+        const vh = window.innerHeight;
+        const total = r.height + vh;
+        const done = Math.min(1, Math.max(0, (vh - r.top) / total));
+        vialSvg.style.transform = `translateY(${(done * 70).toFixed(1)}px) scale(${(1 + done * 0.35).toFixed(3)})`;
       }
       ticking = false;
     });
@@ -146,6 +155,27 @@
       }
     });
   });
+
+  // Chapter rail — active chapter tracks scroll (storyline index)
+  const chapterLinks = document.querySelectorAll(".chapter-rail a[data-chapter]");
+  if (chapterLinks.length && "IntersectionObserver" in window) {
+    const sections = [...chapterLinks]
+      .map((a) => document.querySelector(a.getAttribute("href")))
+      .filter(Boolean);
+    const setActive = (id) =>
+      chapterLinks.forEach((a) =>
+        a.classList.toggle("active", a.getAttribute("href") === `#${id}`)
+      );
+    const chapterIO = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActive(e.target.id);
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+    sections.forEach((s) => chapterIO.observe(s));
+  }
 
   // Contact form — Formspree-ready (falls back to toast + mailto)
   const form = document.querySelector("form[data-contact]");

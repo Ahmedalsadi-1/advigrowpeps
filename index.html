@@ -13,18 +13,27 @@
     <nav aria-label="Primary">
       <ul class="nav-links">
         <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="world.html">World</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="legal.html">Legal</a></li>
+        <li><a href="products.html">Collection</a></li>
+        <li><a href="about.html">Our Standard</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="#faq">FAQ</a></li>
         <li class="nav-auth" id="nav-auth" hidden><span id="clerk-signin-slot"></span><span id="clerk-user-slot"></span></li>
         <li><a class="nav-cta" href="products.html">Shop Collection</a></li>
       </ul>
     </nav>
-    <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    <div class="nav-actions">
+      <button class="nav-cart" id="adv-cart-btn" aria-label="Open quote cart"></button>
+      <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    </div>
   </header>
+
+  <nav class="chapter-rail" aria-label="Page chapters">
+    <a href="#collection" data-chapter>01 · Collection</a>
+    <a href="#standard" data-chapter>02 · Standard</a>
+    <a href="#proof" data-chapter>03 · Proof</a>
+    <a href="#trace" data-chapter>04 · Trace</a>
+    <a href="#experiences" data-chapter>05 · Field Notes</a>
+    <a href="#answers" data-chapter>06 · Answers</a>
+  </nav>
 
   <section class="hero">
     <div class="hero-media">
@@ -52,9 +61,10 @@
     <section class="section" id="collection">
       <div class="container">
         <div class="section-head reveal">
-          <h2><span class="section-num">01 /</span>The Collection</h2>
+          <h2><span class="section-num">Chapter 01</span>The Collection</h2>
           <a class="kicker" href="products.html">View All Products</a>
         </div>
+        <p class="chapter-line reveal">Every research program starts the same way — with a question. Ours begins with three compounds, held to one standard.</p>
         <div class="product-grid">
           <a class="product-card reveal" style="--reveal-delay:0ms" href="product-glp1.html" data-category="single">
             <div class="card-media">
@@ -105,11 +115,12 @@
       </div>
     </section>
 
-    <section class="section dark-section">
+    <section class="section dark-section" id="standard">
       <div class="container">
         <div class="section-head reveal">
-          <h2><span class="section-num">02 /</span>The Standard</h2>
+          <h2><span class="section-num">Chapter 02</span>The Standard</h2>
         </div>
+        <p class="chapter-line reveal">Curiosity is not enough. Before a single vial ships, it must survive four tests that never bend.</p>
         <div class="stats-band reveal">
           <div class="stat"><div class="stat-value">99%+</div><div class="stat-label">HPLC Purity, Every Lot</div></div>
           <div class="stat"><div class="stat-value">3rd</div><div class="stat-label">Party Independent Testing</div></div>
@@ -119,13 +130,13 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="proof">
       <div class="container split">
         <div class="split-media reveal">
           <img src="assets/img/glass-vials.jpg" alt="Clear glass vials in a laboratory setting" loading="lazy" width="1200" height="900" />
         </div>
         <div class="reveal" style="--reveal-delay:120ms">
-          <p class="kicker">Quality, Documented</p>
+          <p class="kicker">Chapter 03 · The Proof</p>
           <h2>A COA on every vial — published before you buy.</h2>
           <p>Each batch is analyzed by HPLC and mass spectrometry for identity and purity, screened for heavy metals and endotoxins, and shipped only after independent verification. Batch documentation travels with the compound, not with a promise.</p>
           <a class="btn btn-dark" href="legal.html">Read Our Policy</a>
@@ -133,12 +144,13 @@
       </div>
     </section>
 
-    <section class="section" id="lots">
+    <section class="section" id="trace">
       <div class="container">
         <div class="section-head reveal">
-          <h2><span class="section-num">03 /</span>Published Lots</h2>
+          <h2><span class="section-num">Chapter 04</span>The Trace</h2>
           <a class="kicker" href="contact.html">Request a COA</a>
         </div>
+        <p class="chapter-line reveal">Proof you can hold: every lot is published, numbered, and traceable from synthesis to your bench.</p>
         <div class="lot-list">
           <a class="lot-row reveal" href="product-glp1.html"><span><strong>ADV-G1-1042</strong> · GLP-1 Semaglutide 10 mg</span><span class="lot-meta">≥99% HPLC · $95</span></a>
           <a class="lot-row reveal" style="--reveal-delay:120ms" href="product-glp2.html"><span><strong>ADV-G2-0871</strong> · GLP-2 Teduglutide 10 mg</span><span class="lot-meta">≥99% HPLC · $120</span></a>
@@ -147,12 +159,57 @@
       </div>
     </section>
 
+    <section class="section" id="experiences">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2><span class="section-num">Chapter 05</span>Field Notes</h2>
+          <a class="kicker" href="contact.html">Ask the Lab Desk</a>
+        </div>
+        <p class="chapter-line reveal">The story continues at the bench — what research teams tell us after the COA checks out.</p>
+        <div class="exp-grid">
+          <div class="vial-stage reveal" role="img" aria-label="Illustration of an Advigrow research vial: sealed glass vial with gold crimp cap and batch label">
+            <svg viewBox="0 0 200 300" fill="none" aria-hidden="true">
+              <rect x="70" y="18" width="60" height="26" rx="3" fill="#CA8A04"/>
+              <rect x="70" y="18" width="60" height="8" rx="3" fill="#EAB308"/>
+              <rect x="76" y="44" width="48" height="10" fill="#44403C"/>
+              <path d="M62 54 h76 v14 c0 4 -4 6 -8 6 h-60 c-4 0 -8 -2 -8 -6 z" fill="#A8A29E"/>
+              <rect x="55" y="74" width="90" height="196" rx="12" fill="#E7E5E4"/>
+              <rect x="55" y="74" width="90" height="196" rx="12" stroke="#44403C" stroke-width="2"/>
+              <rect x="63" y="86" width="14" height="172" rx="7" fill="#FFFFFF" opacity="0.7"/>
+              <rect x="55" y="130" width="90" height="96" fill="#FFFFFF" stroke="#44403C" stroke-width="1.5"/>
+              <text x="100" y="152" text-anchor="middle" font-family="Georgia,serif" font-size="11" font-weight="700" letter-spacing="1.5" fill="#0C0A09">ADVIGROW</text>
+              <text x="100" y="170" text-anchor="middle" font-family="monospace" font-size="11" fill="#57534E">GLP-1 · 10 mg</text>
+              <text x="100" y="188" text-anchor="middle" font-family="monospace" font-size="10" fill="#57534E">ADV-G1-1042</text>
+              <rect x="78" y="200" width="44" height="16" rx="8" fill="#0C0A09"/>
+              <text x="100" y="212" text-anchor="middle" font-family="sans-serif" font-size="9" font-weight="700" letter-spacing="1.5" fill="#EAB308">RUO</text>
+            </svg>
+          </div>
+          <div class="exp-cards">
+            <figure class="exp-card reveal">
+              <blockquote>"COA in hand before we paid the invoice. First supplier that's done that."</blockquote>
+              <figcaption>Lab Manager · University Core Facility</figcaption>
+            </figure>
+            <figure class="exp-card reveal" style="--reveal-delay:120ms">
+              <blockquote>"Lot ADV-G1-1042 matched its paperwork down to the chromatogram. Our records practically wrote themselves."</blockquote>
+              <figcaption>Analytical Chemist · Contract Research Lab</figcaption>
+            </figure>
+            <figure class="exp-card reveal" style="--reveal-delay:240ms">
+              <blockquote>"One email, COA the same day, cold-chain guidance in the box. Reordering took less time than the reorder form."</blockquote>
+              <figcaption>Procurement Lead · Biotech Startup</figcaption>
+            </figure>
+            <p style="color:var(--muted);font-size:.8rem;line-height:1.7">Reflections on documentation and service from qualified research customers — not efficacy claims. All compounds are RUO, never for human use.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="faq">
       <div class="container">
         <div class="section-head reveal">
-          <h2><span class="section-num">04 /</span>Questions</h2>
+          <h2><span class="section-num">Chapter 06</span>The Answers</h2>
           <a class="kicker" href="contact.html">Ask the Lab Desk</a>
         </div>
+        <p class="chapter-line reveal">Questions close the distance between a listing and a trusted supplier. Ask yours — a specialist answers within one business day.</p>
         <div class="faq">
           <div class="faq-item reveal">
             <button class="faq-q" aria-expanded="false">What does ≥99% HPLC purity actually mean?</button>
@@ -182,11 +239,16 @@
       </div>
     </section>
 
-    <section class="cta-band">
+    <section class="cta-band" id="begin">
       <div class="container reveal">
         <h2>Build your <em>research</em> on compounds you can verify.</h2>
         <p>Qualified researchers and laboratories only. Every order ships with batch-matched documentation and cold-chain handling guidance.</p>
         <a class="btn btn-gold" href="products.html">Shop the Collection</a>
+        <div class="contact-strip">
+          <span>Prefer to talk first?</span>
+          <a href="tel:+13479683894">(347) 968-3894</a>
+          <a href="mailto:advigrow@gmail.com">advigrow@gmail.com</a>
+        </div>
       </div>
     </section>
   </main>
@@ -197,6 +259,10 @@
         <div>
           <div class="footer-logo">ADVIGROW<span> PEPTIDES</span></div>
           <p>Precision research compounds for qualified laboratories. Documented purity. Verified identity. advigrow.online</p>
+          <div class="footer-contact">
+            <a href="tel:+13479683894">Call / Text · (347) 968-3894</a>
+            <a href="mailto:advigrow@gmail.com">advigrow@gmail.com</a>
+          </div>
         </div>
         <div class="footer-col">
           <h4>Shop</h4>

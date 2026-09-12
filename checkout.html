@@ -13,19 +13,23 @@
     <nav aria-label="Primary">
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
+        <li><a href="products.html">Collection</a></li>
+        <li><a href="about.html">Our Standard</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a class="nav-cta" href="products.html">Shop Collection</a></li>
       </ul>
     </nav>
-    <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    <div class="nav-actions">
+      <button class="nav-cart" id="adv-cart-btn" aria-label="Open quote cart"></button>
+      <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    </div>
   </header>
 
   <section class="page-hero">
     <div class="container">
       <p class="kicker" style="color:var(--gold-bright)">Quote checkout · Research Use Only</p>
       <h1>Request <em>quote</em></h1>
-      <p>No payment is taken here yet. Submit your quote and we confirm COA + stock at advigrow@gmail.com within one business day. Stripe Payment Links plug in here when live — see docs/SETUP-PAYMENTS-NOTIFICATIONS.md.</p>
+      <p>No payment is taken here yet. Submit your request and we confirm COA and stock within one business day — then a Stripe Payment Link completes the order. Questions in the meantime? We're one call or email away.</p>
     </div>
   </section>
 
@@ -35,6 +39,11 @@
         <h2 class="serif" style="font-size:1.6rem;margin-bottom:1rem">Order summary</h2>
         <div id="co-items" style="border:1px solid var(--line);border-radius:2px;padding:1rem;background:#fff"></div>
         <div id="co-total" style="font-weight:700;margin-top:1rem"></div>
+        <div class="contact-strip on-light" style="margin-top:1.25rem">
+          <span>Order desk</span>
+          <a href="tel:+13479683894">(347) 968-3894</a>
+          <a href="mailto:advigrow@gmail.com">advigrow@gmail.com</a>
+        </div>
         <div class="ruo-box" style="margin-top:1.5rem">
           <strong>Research Use Only</strong>
           All compounds are chemical compounds for in-vitro laboratory research by qualified professionals. Not drugs, supplements, or cosmetics. Not FDA-evaluated. Not for human or veterinary consumption.
@@ -48,10 +57,10 @@
         <div class="field"><label for="co-note">Notes (lot requests, PO#)</label><input id="co-note" name="note" placeholder="Lot ADV-G1-1042 if specific" /></div>
         <div class="field" style="display:flex;gap:.6rem;align-items:flex-start">
           <input id="co-ruo" type="checkbox" required style="min-height:24px;width:24px" />
-          <label for="co-ruo" style="text-transform:none;letter-spacing:0;font-size:.9rem;color:var(--secondary)">I confirm I am a qualified research end-user (21+), purchasing strictly for in-vitro laboratory research. Not for human or veterinary use. I accept the RUO Policy in legal.html.</label>
+          <label for="co-ruo" style="text-transform:none;letter-spacing:0;font-size:.9rem;color:var(--secondary)">I confirm I am a qualified research end-user (21+), purchasing strictly for in-vitro laboratory research. Not for human or veterinary use. I accept the RUO Policy in <a href="legal.html" style="text-decoration:underline">legal.html</a>.</label>
         </div>
         <button class="btn btn-gold" type="submit" style="width:100%">Submit quote request</button>
-        <p style="color:var(--muted);font-size:.85rem;margin-top:.8rem">Submits via Formspree to advigrow@gmail.com when configured, else opens your email client. No card charged.</p>
+        <p style="color:var(--muted);font-size:.85rem;margin-top:.8rem">Routes to advigrow@gmail.com — via Formspree when configured, otherwise your email client opens pre-filled. No card charged.</p>
         <div id="stripe-links" style="margin-top:1rem"></div>
       </form>
     </div>
@@ -59,8 +68,41 @@
 
   <footer class="site-footer">
     <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">ADVIGROW<span> PEPTIDES</span></div>
+          <p>Precision research compounds for qualified laboratories. Documented purity. Verified identity.</p>
+          <div class="footer-contact">
+            <a href="tel:+13479683894">Call / Text · (347) 968-3894</a>
+            <a href="mailto:advigrow@gmail.com">advigrow@gmail.com</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="product-glp1.html">GLP-1</a></li>
+            <li><a href="product-glp2.html">GLP-2</a></li>
+            <li><a href="product-glp3.html">GLP-3</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="legal.html">Legal &amp; RUO Policy</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="contact.html">COA Requests</a></li>
+            <li><a href="legal.html">Shipping &amp; Returns</a></li>
+          </ul>
+        </div>
+      </div>
       <div class="footer-disclaimer"><strong>Research Use Only.</strong> Not for human or veterinary consumption.</div>
-      <div class="footer-bottom"><span>© 2026 Advigrow Peptides · advigrow.online</span><span id="social-links"><a href="https://www.instagram.com/advigrow/">Instagram</a> · <a href="https://www.linkedin.com/company/advigrowpeptides">LinkedIn</a> · <a href="https://x.com/advigrow">X</a> · <a href="https://www.tiktok.com/@advigrow">TikTok</a></span></div>
+      <div class="footer-bottom"><span>© 2026 Advigrow Peptides · advigrow.online — For Laboratory Research Use Only</span><span id="social-links"><a href="https://www.instagram.com/advigrow/">Instagram</a> · <a href="https://www.linkedin.com/company/advigrowpeptides">LinkedIn</a> · <a href="https://x.com/advigrow">X</a> · <a href="https://www.tiktok.com/@advigrow">TikTok</a></span></div>
     </div>
   </footer>
 
