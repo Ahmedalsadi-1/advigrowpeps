@@ -18,6 +18,8 @@
         <li><a href="about.html">About</a></li>
         <li><a href="legal.html">Legal</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li class="nav-auth" id="nav-auth" hidden><span id="clerk-signin-slot"></span><span id="clerk-user-slot"></span></li>
         <li><a class="nav-cta" href="products.html">Shop Collection</a></li>
       </ul>
     </nav>
@@ -131,6 +133,55 @@
       </div>
     </section>
 
+    <section class="section" id="lots">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2><span class="section-num">03 /</span>Published Lots</h2>
+          <a class="kicker" href="contact.html">Request a COA</a>
+        </div>
+        <div class="lot-list">
+          <a class="lot-row reveal" href="product-glp1.html"><span><strong>ADV-G1-1042</strong> · GLP-1 Semaglutide 10 mg</span><span class="lot-meta">≥99% HPLC · $95</span></a>
+          <a class="lot-row reveal" style="--reveal-delay:120ms" href="product-glp2.html"><span><strong>ADV-G2-0871</strong> · GLP-2 Teduglutide 10 mg</span><span class="lot-meta">≥99% HPLC · $120</span></a>
+          <a class="lot-row reveal" style="--reveal-delay:240ms" href="product-glp3.html"><span><strong>ADV-G3-0554</strong> · GLP-3 Retatrutide 10 mg</span><span class="lot-meta">≥99% HPLC · $110</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2><span class="section-num">04 /</span>Questions</h2>
+          <a class="kicker" href="contact.html">Ask the Lab Desk</a>
+        </div>
+        <div class="faq">
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">What does ≥99% HPLC purity actually mean?</button>
+            <div class="faq-a"><div><p>Every lot is analyzed by HPLC for purity and by mass spectrometry for identity. The measured numbers are printed on the batch-matched Certificate of Analysis that ships with the compound — never a promise, always a document.</p></div></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">What ships with my order?</button>
+            <div class="faq-a"><div><p>The lyophilized compound, its batch-matched COA, and cold-chain handling guidance. Each vial is traceable to its lot from synthesis to shipment.</p></div></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">How fast do orders process?</button>
+            <div class="faq-a"><div><p>Quotes are confirmed within one business day. Paid orders process within 24 hours and ship in 1–2 days from our US facility with tracking by email.</p></div></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">Can I see a COA before I buy?</button>
+            <div class="faq-a"><div><p>Yes. Email <a href="mailto:advigrow@gmail.com">advigrow@gmail.com</a> with the compound and lot number and we reply with the document within one business day.</p></div></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">How do quote checkout and payment work?</button>
+            <div class="faq-a"><div><p>Submit a quote request with no card charged. We confirm COA and stock, then send a Stripe Payment Link. Card payment activates fully once links go live — see checkout for current status.</p></div></div>
+          </div>
+          <div class="faq-item reveal">
+            <button class="faq-q" aria-expanded="false">Who is eligible to purchase?</button>
+            <div class="faq-a"><div><p>Qualified research end-users (21+) purchasing strictly for in-vitro laboratory research. All compounds are RUO — not for human or veterinary use. Full terms in our <a href="legal.html">RUO policy</a>.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="cta-band">
       <div class="container reveal">
         <h2>Build your <em>research</em> on compounds you can verify.</h2>
@@ -183,9 +234,11 @@
     </div>
   </footer>
 
+  <a class="sticky-call" href="tel:+13479683894">Call or Text · (347) 968-3894</a>
   <div class="toast" role="status" aria-live="polite"></div>
   <script src="js/main.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/analytics.js"></script>
+  <script src="js/auth.js"></script>
 </body>
 </html>

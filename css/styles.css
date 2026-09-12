@@ -1189,3 +1189,54 @@ body.has-promo .site-nav { top: calc(1rem + 40px); }
   .hero-media img { height: 100%; }
   .marquee-track { animation: none; flex-wrap: wrap; width: 100%; }
 }
+
+/* ---------- Anchors, sticky call bar, published lots, auth ---------- */
+html { scroll-padding-top: 88px; }
+
+.nav-auth[hidden] { display: none; }
+.nav-auth { display: flex; align-items: center; }
+.nav-auth .clerk-btn {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: transparent;
+  cursor: pointer;
+}
+
+.lot-list { display: flex; flex-direction: column; }
+.lot-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+.lot-row:first-child { border-top: 1px solid var(--line); }
+.lot-row strong { font-weight: 700; }
+.lot-meta { color: var(--gold); font-weight: 600; white-space: nowrap; }
+
+.sticky-call { display: none; }
+@media (max-width: 768px) {
+  body { padding-bottom: 60px; }
+  .sticky-call {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 55;
+    min-height: 60px;
+    padding-bottom: env(safe-area-inset-bottom);
+    background: var(--ink);
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+}
