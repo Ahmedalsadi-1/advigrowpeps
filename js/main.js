@@ -30,11 +30,15 @@
         heroImg.style.transform = `translateY(${y * 0.25}px)`;
       }
       if (expSection && vialSvg && !prefersReduced) {
-        const r = expSection.getBoundingClientRect();
-        const vh = window.innerHeight;
-        const total = r.height + vh;
-        const done = Math.min(1, Math.max(0, (vh - r.top) / total));
-        vialSvg.style.transform = `translateY(${(done * 70).toFixed(1)}px) scale(${(1 + done * 0.35).toFixed(3)})`;
+        if (window.innerWidth < 768) {
+          vialSvg.style.transform = "";
+        } else {
+          const r = expSection.getBoundingClientRect();
+          const vh = window.innerHeight;
+          const total = r.height + vh;
+          const done = Math.min(1, Math.max(0, (vh - r.top) / total));
+          vialSvg.style.transform = `translateY(${(done * 48).toFixed(1)}px) scale(${(1 + done * 0.25).toFixed(3)})`;
+        }
       }
       ticking = false;
     });

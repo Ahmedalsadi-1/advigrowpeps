@@ -993,6 +993,7 @@ body.has-promo .pd-hero {
   align-items: start;
 }
 .contact-grid .stats-band { margin-top: var(--space-4); }
+.contact-stat { font-size: clamp(1rem, 4.5vw, 1.3rem); overflow-wrap: anywhere; }
 .field { margin-bottom: var(--space-3); }
 .field label {
   display: block;
@@ -1218,6 +1219,18 @@ body.has-promo .site-nav { top: calc(1rem + 40px); }
 @media (max-width: 480px) {
   .steps, .stats-band, .footer-grid, .assay-grid { grid-template-columns: 1fr; }
   .nav-links a { font-size: 1.1rem; }
+  .nav-logo { font-size: 0.92rem; letter-spacing: 0.1em; }
+  .site-nav { padding: 0.55rem 0.6rem 0.55rem 1rem; }
+  .section-num { display: block; margin: 0 0 0.4rem; }
+  .section-head h2 { max-width: 100%; }
+  .lot-row { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
+  .lot-meta { white-space: normal; }
+  .pd-price-card { width: 100%; }
+  .pd-price-card-main { white-space: normal; }
+  .contact-grid .stat { padding: 1.25rem 1rem; }
+  .contact-grid .stat-value { font-size: 1.02rem; overflow-wrap: anywhere; }
+  #co-items > div { flex-wrap: wrap; gap: 0.2rem 1rem; }
+  .chapter-line { font-size: 1rem; }
 }
 
 /* ---------- Reduced motion — everything stills (DESIGN.md §12) ---------- */
