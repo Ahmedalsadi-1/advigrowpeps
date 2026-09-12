@@ -2,9 +2,9 @@
 (() => {
   "use strict";
   // TODO owner: paste Formspree endpoint, e.g. https://formspree.io/f/xxxx
-  // Get one free at formspree.io, set destination to orders@advigrow.online
+  // Get one free at formspree.io, set destination to advigrow@gmail.com
   const FORMSPREE_ENDPOINT = "";
-  const ORDERS_EMAIL = "orders@advigrow.online";
+  const ORDERS_EMAIL = "advigrow@gmail.com";
 
   const form = document.getElementById("co-form");
   const box = document.getElementById("co-items");
@@ -47,12 +47,12 @@
         const subject = encodeURIComponent(`Quote request $${data.total} — ${data.org}`);
         const body = encodeURIComponent(JSON.stringify(data, null, 2));
         window.location.href = `mailto:${ORDERS_EMAIL}?subject=${subject}&body=${body}`;
-        window.advigrowToast?.("Opening email to orders@advigrow.online — send to submit.");
+        window.advigrowToast?.("Opening email to advigrow@gmail.com — send to submit.");
       }
       try { window.AdvigrowAnalytics?.("quote_request", { value: data.total }); } catch {}
       window.AdvigrowCart.clear(); form.reset(); render();
     } catch {
-      window.advigrowToast?.("Submit failed. Email orders@advigrow.online directly.");
+      window.advigrowToast?.("Submit failed. Email advigrow@gmail.com directly.");
     }
   });
 })();

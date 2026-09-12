@@ -9,7 +9,7 @@ Replace X per platform. Lots: GLP-1 ADV-G1-1042 $95/10mg, GLP-2 ADV-G2-0871 $120
 2. Why every GLP lot is lyophilized under nitrogen — stability, light/moisture protection. RUO only.
 3. GLP-1 vs GLP-2 vs GLP-3 — 31-AA vs 33-AA vs 39-AA, single vs triple agonist. No efficacy claims. RUO only.
 4. 5 things a COA must contain — compound, CAS, HPLC %, MS, lot match. RUO only.
-5. Lot ADV-G1-1042 published — GLP-1 Semaglutide 10mg $95. COA on request at coa@advigrow.online. RUO only.
+5. Lot ADV-G1-1042 published — GLP-1 Semaglutide 10mg $95. COA on request at advigrow@gmail.com. RUO only.
 6. MS identity vs HPLC purity — what each proves. RUO only.
 7. Storage discipline: -20C lyophilized, 2-8C after reconstitution, no freeze-thaw. RUO only.
 8. Lot ADV-G2-0871 — GLP-2 Teduglutide. RUO only.
