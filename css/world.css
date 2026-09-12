@@ -1,0 +1,302 @@
+/* ============================================
+   ADVIGROW PEPTIDES — Scroll World
+   6-scene pinned fly-through (CSS transforms)
+   Scenes: Bottles → Lab → HPLC → COA → Clinic → Hero
+   ============================================ */
+
+:root {
+  --w-ink: #FAFAF9;
+  --w-bg: #0C0A09;
+  --w-accent: #CA8A04;
+  --w-accent-bright: #EAB308;
+  --w-nav-h: 64px;
+}
+
+* { box-sizing: border-box; }
+
+body.world-body {
+  margin: 0;
+  background: var(--w-bg);
+  color: var(--w-ink);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* ---------- Fixed stage ---------- */
+.world-stage {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--w-bg);
+}
+
+/* ---------- Scenes ---------- */
+.scene {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms linear;
+  will-change: opacity, transform;
+}
+.scene.active { opacity: 1; visibility: visible; }
+
+.scene-media {
+  position: absolute;
+  inset: -12%;
+  background-size: cover;
+  background-position: center;
+  will-change: transform, filter;
+  transform: scale(1.18);
+}
+.scene.active .scene-media { transform: scale(1); }
+.scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(12,10,9,0.74), rgba(12,10,9,0.5) 45%, rgba(12,10,9,0.9));
+}
+
+/* depth layers: image + floating tag chips zoom at different rates (parallax) */
+.scene-tags {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  will-change: transform, opacity;
+}
+
+/* ---------- Copy block ---------- */
+.scene-copy {
+  position: relative;
+  z-index: 4;
+  width: min(880px, calc(100% - 3rem));
+  text-align: center;
+  will-change: transform, opacity;
+}
+.scene.active .scene-copy { transform: translateY(0); opacity: 1; }
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--w-accent-bright);
+  margin-bottom: 1rem;
+}
+.scene-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(2.4rem, 6.5vw, 5.2rem);
+  line-height: 1.05;
+  margin: 0 0 1.1rem;
+  letter-spacing: -0.01em;
+}
+.scene-title em { font-style: italic; color: var(--w-accent-bright); }
+.scene-body {
+  max-width: 58ch;
+  margin: 0 auto 1.4rem;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: rgba(250, 250, 249, 0.82);
+}
+.tags { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+.tag {
+  padding: 0.42rem 1rem;
+  border: 1px solid rgba(202, 138, 4, 0.45);
+  border-radius: 999px;
+  background: rgba(12, 10, 9, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--w-accent-bright);
+}
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  padding: 1rem 2.4rem;
+  background: var(--w-accent);
+  color: var(--w-bg);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: background 200ms ease;
+}
+.cta-btn:hover { background: var(--w-accent-bright); }
+
+/* ---------- Progress rail ---------- */
+.route-rail {
+  position: fixed;
+  left: 1.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.rail-dot {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(250, 250, 249, 0.4);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background 200ms ease, border-color 200ms ease, transform 200ms ease;
+}
+.rail-dot:hover { border-color: var(--w-accent-bright); }
+.rail-dot.current {
+  background: var(--w-accent);
+  border-color: var(--w-accent);
+  transform: scale(1.25);
+}
+.rail-dot .dot-label {
+  position: absolute;
+  left: 1.4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(250, 250, 249, 0.55);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+}
+.rail-dot:hover .dot-label, .rail-dot.current .dot-label { opacity: 1; }
+
+/* ---------- Scroll progress bar ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  z-index: 11;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, var(--w-accent), var(--w-accent-bright));
+  pointer-events: none;
+}
+
+/* ---------- Top nav (slim, page-local) ---------- */
+.world-nav {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7rem 1.4rem;
+  border-radius: 14px;
+  background: rgba(12, 10, 9, 0.55);
+  backdrop-filter: blur(16px) saturate(1.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  border: 1px solid rgba(250, 250, 249, 0.12);
+}
+.world-nav .nav-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--w-ink);
+  text-decoration: none;
+}
+.world-nav .nav-logo span { color: var(--w-accent-bright); }
+.world-nav .nav-links { display: flex; gap: 1.6rem; list-style: none; margin: 0; padding: 0; }
+.world-nav .nav-links a {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250, 250, 249, 0.7);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+.world-nav .nav-links a:hover, .world-nav .nav-links a[aria-current="page"] { color: var(--w-accent-bright); }
+
+/* ---------- Entrance / exit hint ---------- */
+.scroll-hint {
+  position: fixed;
+  bottom: 1.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  font-size: 0.66rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(250, 250, 249, 0.55);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  pointer-events: none;
+  transition: opacity 400ms ease;
+}
+.scroll-hint::after {
+  content: "";
+  width: 1px;
+  height: 42px;
+  background: linear-gradient(var(--w-accent-bright), transparent);
+  animation: hintPulse 1.8s ease infinite;
+}
+@keyframes hintPulse {
+  0%, 100% { transform: scaleY(0.35); transform-origin: top; opacity: 0.4; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+.scroll-hint.hidden { opacity: 0; }
+
+/* ---------- Footer strip ---------- */
+.world-ruo {
+  position: fixed;
+  bottom: 1.4rem;
+  right: 1.6rem;
+  z-index: 10;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250, 250, 249, 0.4);
+  max-width: 34ch;
+  text-align: right;
+  pointer-events: none;
+}
+
+/* ---------- Height driver (JS sets this) ---------- */
+.world-scroll-space { position: relative; width: 100%; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 860px) {
+  .route-rail { left: 0.8rem; gap: 0.9rem; }
+  .rail-dot .dot-label { display: none; }
+  .scene-copy { width: min(880px, calc(100% - 5rem)); }
+  .scene-body { font-size: 0.92rem; }
+  .world-nav .nav-links { display: none; }
+  .scroll-hint { bottom: 4.5rem; }
+  .world-ruo {
+    position: static;
+    margin: 0;
+    padding: 0 1rem 1.2rem;
+    text-align: center;
+    font-size: 0.58rem;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .scene-media { transform: none !important; transition: none; }
+  .scroll-hint::after { animation: none; }
+}

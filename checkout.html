@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout — Advigrow Peptides</title>
+  <meta name="description" content="Request a quote for GLP-class research compounds. Research use only." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-nav">
+    <a class="nav-logo" href="index.html">ADVIGROW<span> PEPTIDES</span></a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="nav-cta" href="products.html">Shop Collection</a></li>
+      </ul>
+    </nav>
+    <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <p class="kicker" style="color:var(--gold-bright)">Quote checkout · Research Use Only</p>
+      <h1>Request <em>quote</em></h1>
+      <p>No payment is taken here yet. Submit your quote and we confirm COA + stock at orders@advigrow.online within one business day. Stripe Payment Links plug in here when live — see docs/SETUP-PAYMENTS-NOTIFICATIONS.md.</p>
+    </div>
+  </section>
+
+  <main class="section">
+    <div class="container contact-grid">
+      <div>
+        <h2 class="serif" style="font-size:1.6rem;margin-bottom:1rem">Order summary</h2>
+        <div id="co-items" style="border:1px solid var(--line);border-radius:2px;padding:1rem;background:#fff"></div>
+        <div id="co-total" style="font-weight:700;margin-top:1rem"></div>
+        <div class="ruo-box" style="margin-top:1.5rem">
+          <strong>Research Use Only</strong>
+          All compounds are chemical compounds for in-vitro laboratory research by qualified professionals. Not drugs, supplements, or cosmetics. Not FDA-evaluated. Not for human or veterinary consumption.
+        </div>
+      </div>
+      <form id="co-form" novalidate>
+        <div class="field"><label for="co-name">Full Name</label><input id="co-name" name="name" required placeholder="Your Name" autocomplete="name" /></div>
+        <div class="field"><label for="co-email">Work Email</label><input id="co-email" name="email" type="email" required placeholder="name@lab.edu" autocomplete="email" /></div>
+        <div class="field"><label for="co-org">Lab / Institution</label><input id="co-org" name="org" required placeholder="University core facility" /></div>
+        <div class="field"><label for="co-addr">Shipping Address</label><input id="co-addr" name="address" required placeholder="Street, City, State, ZIP" autocomplete="street-address" /></div>
+        <div class="field"><label for="co-note">Notes (lot requests, PO#)</label><input id="co-note" name="note" placeholder="Lot ADV-G1-1042 if specific" /></div>
+        <div class="field" style="display:flex;gap:.6rem;align-items:flex-start">
+          <input id="co-ruo" type="checkbox" required style="min-height:24px;width:24px" />
+          <label for="co-ruo" style="text-transform:none;letter-spacing:0;font-size:.9rem;color:var(--secondary)">I confirm I am a qualified research end-user (21+), purchasing strictly for in-vitro laboratory research. Not for human or veterinary use. I accept the RUO Policy in legal.html.</label>
+        </div>
+        <button class="btn btn-gold" type="submit" style="width:100%">Submit quote request</button>
+        <p style="color:var(--muted);font-size:.85rem;margin-top:.8rem">Submits via Formspree to orders@advigrow.online when configured, else opens your email client. No card charged.</p>
+        <div id="stripe-links" style="margin-top:1rem"></div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-disclaimer"><strong>Research Use Only.</strong> Not for human or veterinary consumption.</div>
+      <div class="footer-bottom"><span>© 2026 Advigrow Peptides · advigrow.online</span><span id="social-links"><a href="https://www.instagram.com/advigrow/">Instagram</a> · <a href="https://www.linkedin.com/company/advigrowpeptides">LinkedIn</a> · <a href="https://x.com/advigrow">X</a> · <a href="https://www.tiktok.com/@advigrow">TikTok</a></span></div>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite"></div>
+  <script src="js/main.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>
